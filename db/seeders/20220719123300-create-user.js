@@ -15,7 +15,6 @@ module.exports = {
         name: 'Horner',
         username:"King",
         email:"Cel@gmail.com",
-        // org_id:"b740fbf6-0760-11ed-b939-0242ac120002"
       }
     ], {});
     

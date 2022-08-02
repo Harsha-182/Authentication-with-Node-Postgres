@@ -1,27 +1,42 @@
 
 //model
 const {Organization}=require("../../db/models")
-console.log(Organization);
-//1.Add Role
-const addRole=async(req,res)=>{
+const {User}=require ("../../db/models")
+//1.Add Organization
+const addOrganization=async(req,res)=>{
     let data={
        id:req.body.id,
        name:req.body.name,
     }
 
-    const role=await Organization.create(data)
-    res.status(200).send(role);
+    const organization=await Organization.create(data)
+    res.status(200).send(organization);
 }
 
-//2.Get All Role
+//2.Get All Organization
 
-const getAllRole=async(req,res)=>{
-    const role=await Organization.findAll({})
-    res.status(200).send(role)
+const getAllOrganization=async(req,res)=>{
+    const organization=await Organization.findAll({})
+    res.status(200).send(organization)
 }
+
+//3.Get Organization-Users
+
+const getOrgUser=async(req,res)=>{
+    const organization=await Organization.findAll({
+        include:[{
+            model:User,
+            as:"users"
+        }],
+   where:({id:10})     
+    })
+    res.status(200).send(organization)
+  }
+  
 
 module.exports={
-    addRole,
-    getAllRole
+    addOrganization,
+    getAllOrganization,
+    getOrgUser
 }
 

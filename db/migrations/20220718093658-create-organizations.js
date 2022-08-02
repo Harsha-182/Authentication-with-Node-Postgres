@@ -6,7 +6,7 @@ module.exports = {
         allowNull: false,
       },
       id: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         primaryKey:true,
       },
       created_at: {
